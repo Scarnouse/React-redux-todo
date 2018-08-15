@@ -1,6 +1,16 @@
 import React from 'react';
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { 
+  ListGroup, 
+  ListGroupItem, 
+  Card,
+  CardBody,
+  CardTitle,
+  CardFooter,
+  Input,
+  Container
+} from 'reactstrap';
 
 import {
   updateInputValue,
@@ -28,28 +38,39 @@ class TodoList extends Component {
     // When the user clicks a todo, it's moved to the
     // "done" array.
     return (
-      <div>
-        <h3>TODO</h3>
-        <div>
-          <input
-            value={inputValue}
-            placeholder="TODO..."
-            onKeyUp={this.onKeyUp}
-            onChange={this.onChange}
-            autoFocus
-          />
-        </div>
-        <ul>
-          {todos.map(({ title }, i) =>
-            <li key={i}>
-              <a
-                href="#"
-                onClick={this.onClick.bind(null, i)}
-              >{title}</a>
-            </li>
-          )}
-        </ul>
-      </div>
+      <Container>
+        <Card>
+          <CardBody>
+            <Container>
+              <CardTitle>TODO</CardTitle>
+            </Container>
+            <Container>
+              <Input
+                value={inputValue}
+                placeholder="TODO..."
+                onKeyUp={this.onKeyUp}
+                onChange={this.onChange}
+                autoFocus
+              />
+            </Container>
+            <Container>
+              <ListGroup>
+                {todos.map(({ title }, i) =>
+                  <ListGroupItem 
+                    key={i}
+                    className="justify-content-between"
+                    tag="a"
+                    href="#"
+                    onClick={this.onClick.bind(null, i)}
+                  >
+                    {title}
+                  </ListGroupItem>
+                )}
+              </ListGroup>
+            </Container>
+          </CardBody>
+        </Card>
+      </Container>
     );
   }
 

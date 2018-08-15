@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { 
+  ListGroup, 
+  ListGroupItem, 
+  Card,
+  CardBody,
+  CardTitle,
+  Container
+} from 'reactstrap';
 
 class DoneList extends Component {
   render() {
@@ -16,14 +24,22 @@ class DoneList extends Component {
     // Renders the list of done items, with
     // the "itemStyle" applied to each item.
     return (
-      <div>
-        <h3>DONE</h3>
-        <ul>
-          {done.map(({ title }, i) => 
-            <li key={i} style={itemStyle}>{title}</li>
-          )}
-        </ul>
-      </div>
+      <Container>
+        <Card>
+          <CardBody>
+            <Container>
+              <CardTitle>DONE</CardTitle>
+            </Container>
+            <Container>
+              <ListGroup>
+                {done.map(({ title }, i) => 
+                  <ListGroupItem key={i} style={itemStyle}>{title}</ListGroupItem>
+                )}
+              </ListGroup>
+            </Container>
+          </CardBody>
+        </Card>
+      </Container>
     );
   }
 }
