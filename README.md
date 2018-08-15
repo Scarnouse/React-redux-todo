@@ -1,5 +1,5 @@
 # React Redux Todo-List
 
-..* immutable
-..* redux
-..* react-redux
+* immutable
+* redux
+* react-redux
